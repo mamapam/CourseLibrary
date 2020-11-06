@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CourseLibrary.API.DbContexts;
 using CourseLibrary.API.Services;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +36,8 @@ namespace CourseLibrary.API
 				setupAction.ReturnHttpNotAcceptable = true;
 
 			}).AddXmlDataContractSerializerFormatters();
+
+			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 			services.AddScoped<ICourseLibraryRepository, CourseLibraryRepository>();
 
